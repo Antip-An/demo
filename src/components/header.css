@@ -1,0 +1,13 @@
+#logo {
+    width: 130px!important;
+}
+
+.navbar {
+    text-align: center ;
+    border-bottom: solid;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: rgba(206, 198, 243);
+    background-color: rgba(191, 196, 232);
+    font-weight: bold;
+}
