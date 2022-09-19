@@ -46,14 +46,6 @@ const Footer = () => {
                 Контакты
               </Link>
             </li>
-            {/* <li>
-              <Link
-                className={pathname === "/about/privacy" ? "current" : ""}
-                to="/about/privacy"
-              >
-                Политика конфиденциальности
-              </Link>
-            </li> */}
           </ul>
         </Col>
         <Col className="footer-element" xs={12} sm={4}>
@@ -61,11 +53,11 @@ const Footer = () => {
           <ul>
             <li>
               <a target="_blank" rel="nofollow" href="https://vk.com">
-                ВК: @hogwarts
+                ВК: @game
               </a>
             </li>
             <li>
-              <a href="mailto:issues@gmail.com">Почта: hogwarts@gmail.com</a>
+              <a href="mailto:issues@gmail.com">Почта: game@gmail.com</a>
             </li>
           </ul>
         </Col>

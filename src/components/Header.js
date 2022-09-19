@@ -27,11 +27,7 @@ const Header = () => {
                 <Navbar.Brand as={Link} to="/singin">
                 Вход
                 </Navbar.Brand>
-                <Navbar.Brand as={Link} to="/singup">
-                Регистрация
-                </Navbar.Brand>
                 <Navbar.Brand as={Link} to="/profile">
-                {/* <img id="photo" src={photo} /> */}
                 Профиль
                 </Navbar.Brand>
             </Container>

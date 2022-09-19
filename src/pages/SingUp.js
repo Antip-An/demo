@@ -75,7 +75,6 @@ const RegistrPage = () => {
                     onChange={(event) => setPassword(event.target.value)}
                   />
                 </Form.Group>
-                {/* TODO: */}
                 <Form.Group className="reg-fg"> 
                   <Form.Label>Повторите пароль</Form.Label>
                   <Form.Control

@@ -6,34 +6,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-
 import { useNavigate } from "react-router";
-import { getData, postData } from "../utils/network";
-import useLoginGuard from "../hooks/useLoginGuard";
-
-// import "./css/login.css";
 
 const SingIn = () => {
-  useLoginGuard({ loggedIn: true, path: "/" });
   const navigate = useNavigate();
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onLogin = async (e) => {
-    e.preventDefault();
-    const response = await postData("/auth/login", { username, password });
-
-    if (!response.success) {
-      alert(response.message);
-      if (response.code !== "NETWORK_ERROR") setPassword("");
-      return;
-    }
-
-    localStorage.setItem("token", response.accessToken);
-
-    navigate("/");
-  };
 
   return (
     <Container>
@@ -49,8 +25,6 @@ const SingIn = () => {
                   <Form.Control
                     type="text"
                     id="username"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="login-fg">
@@ -58,13 +32,13 @@ const SingIn = () => {
                   <Form.Control
                     type="password"
                     id="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
                   />
                 </Form.Group>
               </Form>
               
-              <Button className="in" onClick={onLogin}>
+              <Button onClick={() => { 
+                navigate("/");
+              }}>
                 Войти
               </Button>
             </Card.Body>
