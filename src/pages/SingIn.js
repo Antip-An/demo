@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import CloseButton from 'react-bootstrap/CloseButton';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -27,32 +27,32 @@ const SingIn = () => {
       <Row>
         <Card style={{ marginTop: 30 }}>
           <Card.Body>
-            <Card.Title>Вход в систему</Card.Title>
-
+            <Row>
+              <Col><Card.Title>Вход в систему</Card.Title></Col>
+              <Col><CloseButton 
+                style={{marginLeft:"97%"}}
+                onClick={() => {
+                  navigate("/profile");
+                }}
+                />
+              </Col>
+            </Row>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
-                  <Form.Label>Имя пользователя</Form.Label>
-                  <Form.Control required type="text" placeholder="Логин" />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control required type="email" placeholder="Email" />
+                  <Form.Control.Feedback>Молодец!</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4" controlId="validationCustom02">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control required type="text" placeholder="Пароль" />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control id="password" required type="password" placeholder="Пароль" />
+                  <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 
-              <Form.Group className="mb-3">
-                <Form.Check
-                  required
-                  label="Agree to terms and conditions"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-              <Button type="submit">Submit form</Button>
+              <Button type="submit">Войти</Button>
             </Form>
 
             <Button
@@ -60,7 +60,7 @@ const SingIn = () => {
                 navigate("/");
               }}
             >
-              Войти
+              Войти2
             </Button>
           </Card.Body>
         </Card>

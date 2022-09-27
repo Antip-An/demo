@@ -1,7 +1,11 @@
+import Card from "react-bootstrap/Card";
+
 const About = () => {
-    return (
-        <p>aboutt</p>
-    )
-}
+  return (
+    <Card>
+      <h1>О нас</h1>
+    </Card>
+  );
+};
 
 export default About;

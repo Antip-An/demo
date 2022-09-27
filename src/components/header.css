@@ -1,9 +1,22 @@
 #logo {
     width: 130px!important;
+    margin-left: -70px;
+}
+
+#photo1 {
+    height: 50px!important; 
+    width: auto;
+    margin-right: -70px;
+}
+
+#photo2 {
+    height: 55px!important; 
+    width: auto;
 }
 
 .navbar {
     text-align: center ;
+
     border-bottom: solid;
     padding-bottom: 10px;
     font-size: 20px;

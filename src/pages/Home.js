@@ -10,19 +10,12 @@ import useToken from "../hooks/useToken";
 import "./css/home.css"
 
 const Home = () => {
-  const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { loggedIn } = useToken();
-
-  const onLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
 
   return (
     <Card>
       <p></p>
-      <h1>Ваш помощник в выборе игр</h1>
+      <h1>Что наша жизнь — игра...?</h1>
       <Carousel>
         <Carousel.Item>
           <img id="foto" src={foto1} />

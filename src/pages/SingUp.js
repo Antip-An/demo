@@ -1,12 +1,11 @@
 import { useState } from "react";
-
+import CloseButton from 'react-bootstrap/CloseButton';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router";
 
 const SingUp = () => {
@@ -28,32 +27,53 @@ const SingUp = () => {
       <Row>
         <Card style={{ marginTop: 30 }}>
           <Card.Body>
-            <Card.Title>Вход в систему</Card.Title>
+            <Row>
+              <Col><Card.Title>Регистрация</Card.Title></Col>
+              <Col><CloseButton 
+                style={{marginLeft:"97%"}}
+                onClick={() => {
+                  navigate("/profile");
+                }}
+                />
+              </Col>
+            </Row>
 
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
-                  <Form.Label>Имя пользователя</Form.Label>
+                  <Form.Label>Логин</Form.Label>
                   <Form.Control required type="text" placeholder="Логин" />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
+                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control required type="email" placeholder="Email" />
+                  <Form.Control.Feedback>Молодец!</Form.Control.Feedback>
+                </Form.Group>
+
                 <Form.Group as={Col} md="4" controlId="validationCustom02">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control required type="text" placeholder="Пароль" />
+                  <Form.Control id="password" type="password" required type="text" placeholder="Пароль" />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationCustom02">
+                  <Form.Label>Повторите пароль</Form.Label>
+                  <Form.Control id="confirm-password" required type="password" placeholder="Пароль" />
+                  <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
 
               <Form.Group className="mb-3">
                 <Form.Check
                   required
-                  label="Agree to terms and conditions"
-                  feedback="You must agree before submitting."
+                  label="Я согласен на условия"
+                  feedback="Необходимо ваше согласие"
                   feedbackType="invalid"
                 />
               </Form.Group>
-              <Button type="submit">Submit form</Button>
+              <Button type="submit">Зарегистрироваться</Button>
             </Form>
 
             <Button
