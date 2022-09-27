@@ -21,7 +21,8 @@ const Home = () => {
 
   return (
     <Card>
-      <h1>Девиз</h1>
+      <p></p>
+      <h1>Ваш помощник в выборе игр</h1>
       <Carousel>
         <Carousel.Item>
           <img id="foto" src={foto1} />

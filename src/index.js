@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import SingIn from "./pages/SingIn";
 import SingUp from "./pages/SingUp";
+import Cart from "./pages/Cart";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route path="/profile" element={<Profile />} />
           <Route path="/singin" element={<SingIn />} />
           <Route path="/singup" element={<SingUp />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>

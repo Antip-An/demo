@@ -6,93 +6,68 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-
-// import "./css/registr.css";
+import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router";
-import { postData } from "../utils/network";
-import useLoginGuard from "../hooks/useLoginGuard";
 
-const RegistrPage = () => {
-  useLoginGuard({ loggedIn: true, path: "/" });
+const SingUp = () => {
   const navigate = useNavigate();
+  const [validated, setValidated] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const onRegistr = async () => {
-    if (password !== confirmPassword) {
-      alert("Всё плохо!!!")
-      return
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
-    const response = await postData("/users/signup", { email, login, password });
-
-    if (!response.success) {
-      alert(response.message);
-      if (response.code !== "NETWORK_ERROR") setPassword("");
-      return;
-    }
-
-    localStorage.setItem("token", response.token);
-    navigate("/");
+    setValidated(true);
   };
 
   return (
     <Container>
       <Row>
-        <Col md={3} sm={0} />
-        <Col md={6} sm={12}>
-          <Card style={{ marginTop: 50 }}>
-            <Card.Body>
-              <Card.Title>Регистрация</Card.Title>
-              <Form>
-                <Form.Group className="reg-fg">
-                  <Form.Label>Адрес электронной почты</Form.Label>
-                  <Form.Control
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
+        <Card style={{ marginTop: 30 }}>
+          <Card.Body>
+            <Card.Title>Вход в систему</Card.Title>
+
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Label>Имя пользователя</Form.Label>
+                  <Form.Control required type="text" placeholder="Логин" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="reg-fg">
-                  <Form.Label>Логин</Form.Label>
-                  <Form.Control
-                    type="login"
-                    id="login"
-                    value={login}
-                    onChange={(event) => setLogin(event.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group className="reg-fg">
+
+                <Form.Group as={Col} md="4" controlId="validationCustom02">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                  />
+                  <Form.Control required type="text" placeholder="Пароль" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="reg-fg"> 
-                  <Form.Label>Повторите пароль</Form.Label>
-                  <Form.Control
-                    type="password"
-                    id="confirm-password"
-                    value={confirmPassword}
-                    onChange={(event) => setConfirmPassword(event.target.value)}
-                  />
-                </Form.Group>
-              </Form>
-              <Button onClick={onRegistr}>Зарегистрироваться</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={3} sm={0} />
+              </Row>
+
+              <Form.Group className="mb-3">
+                <Form.Check
+                  required
+                  label="Agree to terms and conditions"
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
+              <Button type="submit">Submit form</Button>
+            </Form>
+
+            <Button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Войти
+            </Button>
+          </Card.Body>
+        </Card>
       </Row>
     </Container>
   );
 };
 
-export default RegistrPage;
+export default SingUp;
