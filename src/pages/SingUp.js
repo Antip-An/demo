@@ -54,7 +54,7 @@ const SingUp = () => {
 
                 <Form.Group as={Col} md="4" controlId="validationCustom02">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control id="password" type="password" required type="text" placeholder="Пароль" />
+                  <Form.Control id="password" type="password" required placeholder="Пароль" />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
