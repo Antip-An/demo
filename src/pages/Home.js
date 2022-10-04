@@ -1,4 +1,4 @@
-import { Carousel, Caption, Button, Nav, Card } from "react-bootstrap";
+import { Carousel, Container, Button, Nav, Card } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.PNG";
@@ -13,10 +13,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <Card>
+    <Container>
       <p></p>
       <h1>Что наша жизнь — игра...?</h1>
-      <Carousel>
+      <Carousel style={{marginBottom:"20px"}}>
         <Carousel.Item>
           <img id="foto" src={foto1} />
           <Carousel.Caption>
@@ -42,7 +42,7 @@ const Home = () => {
         </Carousel.Item>
         
       </Carousel>
-    </Card>
+    </Container>
   );
 };
 

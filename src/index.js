@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import SingIn from "./pages/SingIn";
 import SingUp from "./pages/SingUp";
 import Cart from "./pages/Cart";
+import Good from "./pages/Good";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Route path="/" element={<Page />}>
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/good" element={<Good />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />

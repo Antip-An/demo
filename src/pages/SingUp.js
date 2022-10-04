@@ -32,7 +32,7 @@ const SingUp = () => {
               <Col><CloseButton 
                 style={{marginLeft:"97%"}}
                 onClick={() => {
-                  navigate("/profile");
+                  navigate("/");
                 }}
                 />
               </Col>

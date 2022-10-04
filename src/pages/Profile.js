@@ -8,25 +8,7 @@ const Profile = () => {
 
     return (
         <div>
-            <p>profile</p>
-
-            <Button
-            style={{marginLeft:"10px"}}
-            variant="primary"
-            onClick={() => {
-                navigate("/singin");
-            }}>
-                Войти
-            </Button>
-
-            <Button
-            style={{marginLeft:"10px"}}
-            variant="primary"
-            onClick={() => {
-                navigate("/singup");
-            }}>
-                Зарегистироваться
-            </Button>
+            <h1>Профиль</h1>
 
             <Button
             style={{marginLeft:"10px"}}

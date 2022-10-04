@@ -1,10 +1,10 @@
-import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 const About = () => {
   return (
-    <Card>
-      <h1>О нас</h1>
-    </Card>
+    <Container>
+      <h1>Немного о нас</h1>
+    </Container>
   );
 };
 

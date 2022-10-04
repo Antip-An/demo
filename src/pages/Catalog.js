@@ -1,8 +1,13 @@
 import Button from "react-bootstrap/Button";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import CardGroup from "react-bootstrap/CardGroup";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router";
+import foto2 from "../assets/2.jpg";
+import foto3 from "../assets/3.jpg";
 import foto4 from "../assets/4.jpg";
 
 import "./css/home.css";
@@ -11,103 +16,127 @@ const Catalog = () => {
   const navigate = useNavigate();
 
   return (
-    <Card>
-      <Row>
-        <Col xs={6} >
-          <Card
-            style={{ width: "20rem", marginLeft: "20px", marginTop: "25px" }}
-          >
-            <Card.Img variant="top" src={foto4} />
-            <Card.Body>
-              <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-              <Card.Text>Цена: 3 000 руб.</Card.Text>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Подробнее
-              </Button>
-              <Button variant="primary">В корзину</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+    <Container>
+      <Dropdown style={{marginTop:"10px"}}>
+        <Dropdown.Toggle id="dropdown-basic">
+          Сортировка
+        </Dropdown.Toggle>
 
-        <Col xs={6}>
-          <Card
-            style={{
-              width: "20rem",
-              marginLeft: "20px",
-              marginTop: "25px",
-              marginBottom: "25px",
-            }}
-          >
-            <Card.Img variant="top" src={foto4} />
-            <Card.Body>
-              <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-              <Card.Text>Цена: 3 000 руб.</Card.Text>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Подробнее
-              </Button>
-              <Button variant="primary">В корзину</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Новые</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Год</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Название</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Цена</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Категория</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
 
-        <Col xs={6}>
-          <Card
-            style={{ width: "20rem", marginLeft: "20px", marginTop: "25px" }}
-          >
-            <Card.Img variant="top" src={foto4} />
-            <Card.Body>
-              <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-              <Card.Text>Цена: 3 000 руб.</Card.Text>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Подробнее
-              </Button>
-              <Button variant="primary">В корзину</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+      <CardGroup>
+        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
+          <Card.Img variant="top" src={foto4} />
+          <Card.Body>
+            <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
+            <Card.Text>Цена: 3 000 руб.</Card.Text>
+            <Button
+              variant="primary"
+              onClick={() => {
+                navigate("/good");
+              }}
+            >
+              Подробнее
+            </Button>
+            <Button
+              style={{ marginLeft: "10px" }}
+              onClick={() => {
+                navigate("/cart");
+              }}>
+              В корзину
+            </Button>
+          </Card.Body>
+        </Card>
+      </CardGroup>
 
-        <Col xs={6}>
-          <Card
-            style={{
-              width: "20rem",
-              marginLeft: "20px",
-              marginTop: "25px",
-              marginBottom: "25px",
-            }}
-          >
-            <Card.Img variant="top" src={foto4} />
-            <Card.Body>
-              <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-              <Card.Text>Цена: 3 000 руб.</Card.Text>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Подробнее
-              </Button>
-              <Button variant="primary">В корзину</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Card>
+      <CardGroup>
+        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
+          <Card.Img variant="top" src={foto3} />
+          <Card.Body>
+            <Card.Title>Готика 2</Card.Title>
+            <Card.Text>Цена: 3 000 руб.</Card.Text>
+            <Button
+              variant="primary"
+              onClick={() => {
+                navigate("/good");
+              }}
+            >
+              Подробнее
+            </Button>
+            <Button
+              style={{ marginLeft: "10px" }}
+              onClick={() => {
+                navigate("/cart");
+              }}>
+              В корзину
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
+          <Card.Img variant="top" src={foto2} />
+          <Card.Body>
+            <Card.Title>Прототип</Card.Title>
+            <Card.Text>Цена: 3 000 руб.</Card.Text>
+            <Button
+              variant="primary"
+              onClick={() => {
+                navigate("/good");
+              }}
+            >
+              Подробнее
+            </Button>
+            <Button
+              style={{ marginLeft: "10px" }}
+              onClick={() => {
+                navigate("/cart");
+              }}>
+              В корзину
+            </Button>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+
+
+
+      {/* <Row xs={1} md={2} className="g-4">
+        {Array.from({ length: 2 }).map((_, idx) => (
+          <Col>
+            <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
+              <Card.Img variant="top" src={foto4} />
+              <Card.Body>
+                <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
+                <Card.Text>Цена: 3 000 руб.</Card.Text>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    navigate("/good");
+                  }}
+                >
+                  Подробнее
+                </Button>
+                <Button
+                  style={{ marginLeft: "10px" }}
+                  onClick={() => {
+                    navigate("/cart");
+                  }}>
+                  В корзину
+                </Button>
+              </Card.Body>
+            </Card>
+
+          </Col>
+        ))}
+      </Row> */}
+
+    </Container>
   );
 };
 
