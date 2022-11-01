@@ -54,14 +54,6 @@ const SingIn = () => {
 
               <Button type="submit">Войти</Button>
             </Form>
-
-            <Button
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              Войти2
-            </Button>
           </Card.Body>
         </Card>
       </Row>

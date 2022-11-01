@@ -75,14 +75,6 @@ const SingUp = () => {
               </Form.Group>
               <Button type="submit">Зарегистрироваться</Button>
             </Form>
-
-            <Button
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              Войти
-            </Button>
           </Card.Body>
         </Card>
       </Row>
