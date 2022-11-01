@@ -5,10 +5,6 @@ import { PersonSquare, Basket3Fill } from 'react-bootstrap-icons';
 
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-import logo from "../assets/logo.PNG";
-import photo1 from "../assets/5.png";
-import photo2 from "../assets/6.png";
-
 import "./header.css"
 
 const Header = () => {
@@ -26,7 +22,7 @@ const Header = () => {
         <Navbar expand="md">
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    <img id="logo" src={logo} />
+                    <img id="logo" src={"assets/logo.PNG"} />
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse>

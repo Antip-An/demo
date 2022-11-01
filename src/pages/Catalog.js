@@ -1,141 +1,60 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
-import Container from "react-bootstrap/Container";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useNavigate } from "react-router";
-import foto2 from "../assets/2.jpg";
-import foto3 from "../assets/3.jpg";
-import foto4 from "../assets/4.jpg";
+import { useState } from 'react';
+import GoodCard from './GoodCard';
 
-import "./css/home.css";
+import goodsData from "../data/goods.json";
+
+const categories = goodsData
+  .goods
+  .map(el => el.category)
+  .filter((el, index, self) => self.indexOf(el) === index)
 
 const Catalog = () => {
-  const navigate = useNavigate();
+  const [category, setCategory] = useState("Отображать все")
+  const [sortingProperty, setSortingProperty] = useState("added")
 
   return (
-    <Container>
-      <Dropdown style={{marginTop:"10px"}}>
-        <Dropdown.Toggle id="dropdown-basic">
-          Сортировка
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Новые</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Год</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Название</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Цена</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Категория</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-
-      <CardGroup>
-        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
-          <Card.Img variant="top" src={foto4} />
-          <Card.Body>
-            <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-            <Card.Text>Цена: 3 000 руб.</Card.Text>
-            <Button
-              variant="primary"
-              onClick={() => {
-                navigate("/good");
-              }}
-            >
-              Подробнее
-            </Button>
-            <Button
-              style={{ marginLeft: "10px" }}
-              onClick={() => {
-                navigate("/cart");
-              }}>
-              В корзину
-            </Button>
-          </Card.Body>
-        </Card>
-      </CardGroup>
-
-      <CardGroup>
-        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
-          <Card.Img variant="top" src={foto3} />
-          <Card.Body>
-            <Card.Title>Готика 2</Card.Title>
-            <Card.Text>Цена: 3 000 руб.</Card.Text>
-            <Button
-              variant="primary"
-              onClick={() => {
-                navigate("/good");
-              }}
-            >
-              Подробнее
-            </Button>
-            <Button
-              style={{ marginLeft: "10px" }}
-              onClick={() => {
-                navigate("/cart");
-              }}>
-              В корзину
-            </Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
-          <Card.Img variant="top" src={foto2} />
-          <Card.Body>
-            <Card.Title>Прототип</Card.Title>
-            <Card.Text>Цена: 3 000 руб.</Card.Text>
-            <Button
-              variant="primary"
-              onClick={() => {
-                navigate("/good");
-              }}
-            >
-              Подробнее
-            </Button>
-            <Button
-              style={{ marginLeft: "10px" }}
-              onClick={() => {
-                navigate("/cart");
-              }}>
-              В корзину
-            </Button>
-          </Card.Body>
-        </Card>
-      </CardGroup>
-
-
-
-      {/* <Row xs={1} md={2} className="g-4">
-        {Array.from({ length: 2 }).map((_, idx) => (
-          <Col>
-            <Card style={{ marginTop: "10px", marginBottom: "10px" }}>
-              <Card.Img variant="top" src={foto4} />
-              <Card.Body>
-                <Card.Title>Ведьмак 3: Дикая Охота</Card.Title>
-                <Card.Text>Цена: 3 000 руб.</Card.Text>
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    navigate("/good");
-                  }}
-                >
-                  Подробнее
-                </Button>
-                <Button
-                  style={{ marginLeft: "10px" }}
-                  onClick={() => {
-                    navigate("/cart");
-                  }}>
-                  В корзину
-                </Button>
-              </Card.Body>
-            </Card>
-
-          </Col>
+    <>
+      <ol>
+        <li 
+          onClick={() => setCategory("Отображать все")} 
+          style={{ cursor: "pointer"}}
+        >
+          Отображать все
+        </li>
+        {categories.map(el => (
+          <li 
+            key={el} 
+            onClick={() => setCategory(el)}
+            style={{ cursor: "pointer"}}
+          >
+            {el}
+          </li>
         ))}
-      </Row> */}
+      </ol>
 
-    </Container>
+      <ol>
+        <li style={{ cursor: "pointer"}} onClick={() => setSortingProperty("added")}>Дата добавления</li>
+        <li style={{ cursor: "pointer"}} onClick={() => setSortingProperty("year")}>Год выпуска</li>
+        <li style={{ cursor: "pointer"}} onClick={() => setSortingProperty("name")}>Название</li>
+        <li style={{ cursor: "pointer"}} onClick={() => setSortingProperty("price")}>Цена</li>
+      </ol>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+        {goodsData
+          .goods
+          .filter(el => el.hasInStock)
+          .filter(el => category === "Отображать все" || category === el.category)
+          .sort((a,b) => {
+            if (a[sortingProperty] < b[sortingProperty]) return -1;
+            if (a[sortingProperty] === b[sortingProperty]) return 0;
+            return 1;
+          })
+          .map(good => (
+            <GoodCard key={good.id} name={good.name} price={good.price} img={good.img} />
+          ))}
+      </div>
+    </>
   );
-};
+}
 
 export default Catalog;
