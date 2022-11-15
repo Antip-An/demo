@@ -41,13 +41,22 @@ const SingIn = () => {
               <Row className="mb-3">
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control required type="email" placeholder="Email" />
+                  <Form.Control 
+                    required 
+                    type="email" 
+                    placeholder="Email" 
+                  />
                   <Form.Control.Feedback>Молодец!</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4" controlId="validationCustom02">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control id="password" required type="password" placeholder="Пароль" />
+                  <Form.Control 
+                    id="password" 
+                    required 
+                    type="password" 
+                    placeholder="Пароль" 
+                  />
                   <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
                 </Form.Group>
               </Row>

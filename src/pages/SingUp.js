@@ -29,38 +29,87 @@ const SingUp = () => {
           <Card.Body>
             <Row>
               <Col><Card.Title>Регистрация</Card.Title></Col>
-              <Col><CloseButton 
-                style={{marginLeft:"97%"}}
+              <Col><CloseButton
+                style={{ marginLeft: "97%" }}
                 onClick={() => {
                   navigate("/");
                 }}
-                />
+              />
               </Col>
             </Row>
 
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
+
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
-                  <Form.Label>Логин</Form.Label>
-                  <Form.Control required type="text" placeholder="Логин" />
+                  <Form.Label>Имя</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Имя"
+                    
+                  />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                <Form.Group as={Col} md="4" controlId="validationCustom02">
+                  <Form.Label>Фамилия</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Фамилия"
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationCustom03">
+                  <Form.Label>Отчество</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Отчество"
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationCustom04">
+                  <Form.Label>Логин</Form.Label>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Логин"
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationCustom05">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control required type="email" placeholder="Email" />
+                  <Form.Control
+                    required
+                    type="email"
+                    placeholder="Email"
+                  />
                   <Form.Control.Feedback>Молодец!</Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom02">
+                <Form.Group as={Col} md="4" controlId="validationCustom06">
                   <Form.Label>Пароль</Form.Label>
-                  <Form.Control id="password" type="password" required placeholder="Пароль" />
+                  <Form.Control
+                    id="password"
+                    type="password"
+                    required
+                    placeholder="Пароль"
+                  />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom02">
+                <Form.Group as={Col} md="4" controlId="validationCustom07">
                   <Form.Label>Повторите пароль</Form.Label>
-                  <Form.Control id="confirm-password" required type="password" placeholder="Пароль" />
+                  <Form.Control
+                    id="confirm-password"
+                    required
+                    type="password"
+                    placeholder="Пароль" />
                   <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
