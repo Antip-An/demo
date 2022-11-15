@@ -13,6 +13,7 @@ import SingIn from "./pages/SingIn";
 import SingUp from "./pages/SingUp";
 import Cart from "./pages/Cart";
 import Good from "./pages/Good";
+import Admin from "./pages/Admin";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route path="/singin" element={<SingIn />} />
           <Route path="/singup" element={<SingUp />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>

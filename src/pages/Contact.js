@@ -8,7 +8,8 @@ const Contact = () => {
       <h4>Email: game@mail.ru</h4>
 
       <h1>Где нас найти?</h1>
-      <p>map</p>
+      <p>г. Владимир, ул. Полины Осипенко, дом 22</p>
+      <img style={{margin:"auto"}} id="foto" src={"assets/map.png"} />
     </Container>
   );
 };

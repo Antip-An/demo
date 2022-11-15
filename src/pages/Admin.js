@@ -3,12 +3,12 @@ import { useNavigate } from "react-router";
 
 import "./css/home.css"
 
-const Profile = () => {
+const Admin = () => {
     const navigate = useNavigate();
 
     return (
         <div>
-            <h1>Личный кабинет</h1>
+            <h1>Админ панель</h1>
 
             <Button
             style={{marginLeft:"10px"}}
@@ -22,4 +22,4 @@ const Profile = () => {
     )
 };
 
-export default Profile;
+export default Admin;
