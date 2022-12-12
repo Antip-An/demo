@@ -1,34 +1,40 @@
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router";
-import Image from 'react-bootstrap/Image'
+import { Button, Card, CardImg } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import goodsData from "../data/goods";
 
-const Good = () => {
-    const navigate = useNavigate();
+function Good() {
+  let { id } = useParams();
+  id = +id;
 
-    return (
-        <Container>
-            <Image src={"assets/4.jpg"} style={{width:"100%", marginTop:"10px"}} />
-            <h1>Ведьмак 3: Дикая Охота</h1> 
-            <h4>3 000 рублей</h4>
-            <h4>Производитель: CD Projekt</h4>
-            <h4>Год выпуска: 2015</h4>
-            <Button
-            style={{marginBottom:"10px"}}
-            onClick={() => {
-                navigate("/cart");
-            }}>
-                В корзину
-            </Button>
-            <Button
-            style={{marginLeft:"10px", marginBottom:"10px"}}
-            onClick={() => {
-                navigate("/catalog");
-            }}>
-                Назад
-            </Button>
-        </Container>
-    );
-};
+  const good = goodsData.goods.filter((el) => el.id === id)[0];
+
+  if (!good) {
+    return <div>Товар не найден</div>;
+  }
+
+  // { [id]: 1 }
+
+  const addToCart = () => {
+    const inCart = JSON.parse(localStorage.getItem("cart") || "{}");
+    inCart[id] = (inCart[id] || 0) + 1;
+    localStorage.setItem("cart", JSON.stringify(inCart));
+  };
+
+  return (
+    <Card style={{ width: 700, boxShadow: "2px 2px 2px 2px gray", margin:"auto", marginTop:"20px", marginBottom:"20px" }}>
+      <CardImg src={good.img} />
+      <Card.Body style={{ textAlign: "center" }}>
+        {good.name} <br />
+        <b>Цена:</b> {good.price} <br />
+        {good.category} <br />
+        {good.country} <br />
+        {good.model} <br />
+        {good.maker} <br />
+        {good.year} <br />
+        <Button onClick={addToCart}>В корзину</Button>
+      </Card.Body>
+    </Card>
+  );
+}
 
 export default Good;

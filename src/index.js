@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Page from "./Page";
@@ -22,7 +22,6 @@ ReactDOM.render(
         <Route path="/" element={<Page />}>
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/good" element={<Good />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
@@ -30,6 +29,8 @@ ReactDOM.render(
           <Route path="/singup" element={<SingUp />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/good/:id" exact element={<Good />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </BrowserRouter>

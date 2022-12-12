@@ -10,14 +10,6 @@ const Admin = () => {
         <div>
             <h1>Админ панель</h1>
 
-            <Button
-            style={{marginLeft:"10px"}}
-            onClick={() => {
-                navigate("/");
-            }}>
-                Выйти
-            </Button>
-
     </div>
     )
 };

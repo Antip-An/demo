@@ -6,6 +6,7 @@ import { PersonSquare, Basket3Fill } from 'react-bootstrap-icons';
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 import "./header.css"
+import logo from "../assets/logo.PNG";
 
 const Header = () => {
     const { pathname } = useLocation();
@@ -22,7 +23,7 @@ const Header = () => {
         <Navbar expand="md">
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    <img id="logo" src={"assets/logo.PNG"} />
+                    <img id="logo" src={logo} />
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse>

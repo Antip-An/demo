@@ -1,4 +1,5 @@
 import Container from "react-bootstrap/Container";
+import map from "../assets/map.PNG";
 
 const Contact = () => {
   return (
@@ -9,7 +10,7 @@ const Contact = () => {
 
       <h1>Где нас найти?</h1>
       <p>г. Владимир, ул. Полины Осипенко, дом 22</p>
-      <img style={{margin:"auto"}} id="foto" src={"assets/map.png"} />
+      <img style={{margin:"auto"}} id="foto" src={map} />
     </Container>
   );
 };
