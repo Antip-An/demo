@@ -30,7 +30,6 @@ const Header = () => {
                     <Nav>
                         <Nav.Link as={Link} to="/" disabled={pathname === "/"}>Главная</Nav.Link>
                         <Nav.Link as={Link} to="/catalog" disabled={pathname === "/catalog"}>Каталог</Nav.Link>
-                        <Nav.Link as={Link} to="/about" disabled={pathname === "/about"}>О нас</Nav.Link>
                         <Nav.Link as={Link} to="/contact" disabled={pathname === "/contact"}>Контакты</Nav.Link>
                     </Nav>
 

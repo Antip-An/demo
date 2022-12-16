@@ -30,14 +30,7 @@ const Footer = () => {
                 Каталог
               </Link>
             </li>
-            <li>
-              <Link
-                className={pathname === "/about" ? "current" : ""}
-                to="/about"
-              >
-                О нас
-              </Link>
-            </li>
+      
             <li>
               <Link
                 className={pathname === "/contact" ? "current" : ""}
