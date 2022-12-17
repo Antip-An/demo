@@ -10,6 +10,9 @@ import { useNavigate } from "react-router";
 
 const SingUp = () => {
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -17,6 +20,13 @@ const SingUp = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      if (password !== confirmPassword) {
+        alert("Неверный пароль!");
+        return;
+      }
+    }
+    else {
+      navigate("/");
     }
 
     setValidated(true);
@@ -47,7 +57,7 @@ const SingUp = () => {
                     required
                     type="text"
                     placeholder="Имя"
-                    
+                    pattern="^[А-Яа-я/ /-]*$"
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -58,6 +68,7 @@ const SingUp = () => {
                     required
                     type="text"
                     placeholder="Фамилия"
+                    pattern="^[А-Яа-я/ /-]*$"
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -65,11 +76,10 @@ const SingUp = () => {
                 <Form.Group as={Col} md="4" controlId="validationCustom03">
                   <Form.Label>Отчество</Form.Label>
                   <Form.Control
-                    required
                     type="text"
                     placeholder="Отчество"
+                    pattern="^[А-Яа-я/ /-]*$"
                   />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4" controlId="validationCustom04">
@@ -78,6 +88,7 @@ const SingUp = () => {
                     required
                     type="text"
                     placeholder="Логин"
+                    pattern="[A-za-z/-/0-9]*$"
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -95,10 +106,12 @@ const SingUp = () => {
                 <Form.Group as={Col} md="4" controlId="validationCustom06">
                   <Form.Label>Пароль</Form.Label>
                   <Form.Control
-                    id="password"
-                    type="password"
                     required
+                    type="password"
+                    value={password}
+                    minlength="6"
                     placeholder="Пароль"
+                    onChange={(event) => setPassword(event.target.value)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -106,10 +119,12 @@ const SingUp = () => {
                 <Form.Group as={Col} md="4" controlId="validationCustom07">
                   <Form.Label>Повторите пароль</Form.Label>
                   <Form.Control
-                    id="confirm-password"
+                    value={confirmPassword}
                     required
                     type="password"
-                    placeholder="Пароль" />
+                    placeholder="Пароль" 
+                    onChange={(event) => setConfirmPassword(event.target.value)}
+                  />
                   <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
                 </Form.Group>
               </Row>

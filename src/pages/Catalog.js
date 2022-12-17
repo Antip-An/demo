@@ -1,6 +1,9 @@
 import { useState } from "react";
 import GoodCard from "../components/GoodCard";
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import goodsData from "../data/goods";
 
 const categories = goodsData.goods
@@ -13,50 +16,68 @@ const Catalog = () => {
 
   return (
     <>
-      <ol>
-        <li
-          onClick={() => setCategory("Отображать все")}
-          style={{ cursor: "pointer" }}
-        >
-          Отображать все
-        </li>
-        {categories.map((el) => (
-          <li
-            key={el}
-            onClick={() => setCategory(el)}
-            style={{ cursor: "pointer" }}
+      <Row>
+        <Col>
+          <DropdownButton
+            title="Жанр"
+            style={{
+              marginLeft: "15px",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
           >
-            {el}
-          </li>
-        ))}
-      </ol>
+            <li
+              onClick={() => setCategory("Отображать все")}
+              style={{ cursor: "pointer" }}
+            >
+              Отображать все
+            </li>
 
-      <ol>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => setSortingProperty("added")}
-        >
-          Дата добавления
-        </li>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => setSortingProperty("year")}
-        >
-          Год выпуска
-        </li>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => setSortingProperty("name")}
-        >
-          Название
-        </li>
-        <li
-          style={{ cursor: "pointer" }}
-          onClick={() => setSortingProperty("price")}
-        >
-          Цена
-        </li>
-      </ol>
+            {categories.map((el) => (
+              <li
+                key={el}
+                onClick={() => setCategory(el)}
+                style={{ cursor: "pointer" }}
+              >
+                {el}
+                <br />
+              </li>
+            ))}
+          </DropdownButton>
+        </Col>
+
+        <Col>
+          <DropdownButton title="Сортировка" style={{ marginTop: "20px" }}>
+            <li
+              style={{ cursor: "pointer" }}
+              onClick={() => setSortingProperty("added")}
+            >
+              Дата добавления
+            </li>
+
+            <li
+              style={{ cursor: "pointer" }}
+              onClick={() => setSortingProperty("year")}
+            >
+              Год выпуска
+            </li>
+
+            <li
+              style={{ cursor: "pointer" }}
+              onClick={() => setSortingProperty("name")}
+            >
+              Название
+            </li>
+
+            <li
+              style={{ cursor: "pointer" }}
+              onClick={() => setSortingProperty("price")}
+            >
+              Цена
+            </li>
+          </DropdownButton>
+        </Col>
+      </Row>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 15 }}>
         {goodsData.goods
