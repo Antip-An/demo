@@ -1,5 +1,9 @@
-import { Button, Card, CardImg } from "react-bootstrap";
+import CardImg from "react-bootstrap/CardImg";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+
 import { useParams } from "react-router-dom";
+
 import goodsData from "../data/goods";
 
 function Good() {
@@ -11,8 +15,6 @@ function Good() {
   if (!good) {
     return <div>Товар не найден</div>;
   }
-
-  // { [id]: 1 }
 
   const addToCart = () => {
     const inCart = JSON.parse(localStorage.getItem("cart") || "{}");
@@ -28,8 +30,8 @@ function Good() {
         <b>Цена:</b> {good.price} <br />
         {good.category} <br />
         {good.country} <br />
-        {good.model} <br />
         {good.maker} <br />
+        {good.model} <br />
         {good.year} <br />
         <Button onClick={addToCart}>В корзину</Button>
       </Card.Body>

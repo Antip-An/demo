@@ -1,7 +1,5 @@
-import { Carousel, Container, Button, Nav, Card } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import useToken from "../hooks/useToken";
+import Container from "react-bootstrap/Container";
+import Carousel from "react-bootstrap/Carousel";
 
 import "./css/home.css"
 import photo1 from "../assets/1.jpg";
@@ -9,13 +7,11 @@ import game2 from "../assets/game2.jpg";
 import game3 from "../assets/game3.jpg";
 
 const Home = () => {
-  const navigate = useNavigate();
 
   return (
     <Container>
-      <p></p>
-      <h1>Ваш помощник в выборе игр</h1>
-      <Carousel style={{marginBottom:"20px"}}>
+      <h1 style={{marginTop:"20px"}}>Ваш помощник в выборе игр</h1>
+      <Carousel style={{marginBottom:"20px", marginLeft:"-15%", marginRight:"-15%"}}>
         <Carousel.Item>
           <img id="foto" src={photo1} />
           <Carousel.Caption>

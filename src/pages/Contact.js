@@ -1,10 +1,11 @@
 import Container from "react-bootstrap/Container";
+
 import map from "../assets/map.PNG";
 
 const Contact = () => {
   return (
     <Container>
-      <h1>Как с нами связаться?</h1>
+      <h1 style={{marginTop:"20px"}}>Как с нами связаться?</h1>
       <h4>Телефон: 8 900 000 00 00</h4>
       <h4>Email: game@mail.ru</h4>
 

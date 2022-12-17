@@ -1,9 +1,10 @@
-import { useState } from "react";
 import GoodCard from "../components/GoodCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
 import DropdownButton from "react-bootstrap/DropdownButton";
+
+import { useState } from "react";
+
 import goodsData from "../data/goods";
 
 const categories = goodsData.goods
@@ -79,7 +80,7 @@ const Catalog = () => {
         </Col>
       </Row>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 15 }}>
+      <div style={{ display: "flex", flexWrap: "wrap-reverse", gap: 15 }}>
         {goodsData.goods
           .filter((el) => el.hasInStock)
           .filter(

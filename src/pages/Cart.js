@@ -1,5 +1,6 @@
+import Button from "react-bootstrap/Button";
+
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 
 import GoodCard from "../components/GoodCard";
 import goodsData from "../data/goods";

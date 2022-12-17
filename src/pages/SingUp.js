@@ -1,11 +1,12 @@
 import { useState } from "react";
-import CloseButton from 'react-bootstrap/CloseButton';
+import CloseButton from "react-bootstrap/CloseButton";
+import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+
 import { useNavigate } from "react-router";
 
 const SingUp = () => {
@@ -24,9 +25,18 @@ const SingUp = () => {
         alert("Неверный пароль!");
         return;
       }
-    }
-    else {
+    } else {
       navigate("/");
+    }
+
+    setValidated(true);
+  };
+
+  const handleSubmits = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
     setValidated(true);
@@ -35,75 +45,112 @@ const SingUp = () => {
   return (
     <Container>
       <Row>
-        <Card style={{ marginTop: 30 }}>
+        <Card style={{ marginTop: 30, marginBottom: "30px" }}>
           <Card.Body>
             <Row>
-              <Col><Card.Title>Регистрация</Card.Title></Col>
-              <Col><CloseButton
-                style={{ marginLeft: "97%" }}
-                onClick={() => {
-                  navigate("/");
-                }}
-              />
+              <Col>
+                <Card.Title>Регистрация</Card.Title>
+              </Col>
+              <Col>
+                <CloseButton
+                  style={{ marginLeft: "97%" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                />
               </Col>
             </Row>
 
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
-
-                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom01"
+                >
                   <Form.Label>Имя</Form.Label>
                   <Form.Control
                     required
                     type="text"
                     placeholder="Имя"
                     pattern="^[А-Яа-я/ /-]*$"
+                    onInput={handleSubmits}
                   />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom02">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom02"
+                >
                   <Form.Label>Фамилия</Form.Label>
                   <Form.Control
                     required
                     type="text"
                     placeholder="Фамилия"
                     pattern="^[А-Яа-я/ /-]*$"
+                    onInput={handleSubmits}
                   />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom03">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="100"
+                  controlId="validationCustom03"
+                >
                   <Form.Label>Отчество</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Отчество"
                     pattern="^[А-Яа-я/ /-]*$"
+                    onInput={handleSubmits}
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom04">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom04"
+                >
                   <Form.Label>Логин</Form.Label>
                   <Form.Control
                     required
                     type="text"
                     placeholder="Логин"
-                    pattern="[A-za-z/-/0-9]*$"
+                    pattern="[A-za-z/0-9/-]*$"
+                    onInput={handleSubmits}
                   />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom05">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom05"
+                >
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     required
                     type="email"
                     placeholder="Email"
+                    onInput={handleSubmits}
                   />
-                  <Form.Control.Feedback>Молодец!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom06">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom06"
+                >
                   <Form.Label>Пароль</Form.Label>
                   <Form.Control
                     required
@@ -113,19 +160,24 @@ const SingUp = () => {
                     placeholder="Пароль"
                     onChange={(event) => setPassword(event.target.value)}
                   />
-                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
 
-                <Form.Group as={Col} md="4" controlId="validationCustom07">
+                <Form.Group
+                  style={{ marginBottom: "10px" }}
+                  as={Col}
+                  md="6"
+                  controlId="validationCustom07"
+                >
                   <Form.Label>Повторите пароль</Form.Label>
                   <Form.Control
                     value={confirmPassword}
                     required
                     type="password"
-                    placeholder="Пароль" 
+                    placeholder="Пароль"
                     onChange={(event) => setConfirmPassword(event.target.value)}
                   />
-                  <Form.Control.Feedback>Все отлично!</Form.Control.Feedback>
+                  <Form.Control.Feedback />
                 </Form.Group>
               </Row>
 

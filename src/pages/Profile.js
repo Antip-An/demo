@@ -1,4 +1,5 @@
-import { Button, Card } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -11,7 +12,7 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>Личный кабинет</h1>
+      <h1 style={{marginTop:"20px"}}>Личный кабинет</h1>
 
       <Row>
         <Col>
@@ -49,11 +50,15 @@ const Profile = () => {
                 <Card.Title>Номер: 3872484</Card.Title>
                 <Card.Text>Товары:</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Ведьмак 3, ГТА5
+                  Ведьмак 3 (2 шт), ГТА5(1 шт)
                 </Card.Subtitle>
                 <Card.Text>Пункт выдачи:</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">
                   ул.Северная дом 3
+                </Card.Subtitle>
+                <Card.Text>Статус заказа:</Card.Text>
+                <Card.Subtitle className="mb-2 text-muted">
+                  Оформление
                 </Card.Subtitle>
                 <Button variant="primary">Отменить</Button>
               </Card.Body>
@@ -63,12 +68,16 @@ const Profile = () => {
               <Card.Body>
                 <Card.Title>Номер: 563452</Card.Title>
                 <Card.Text>Товары:</Card.Text>
-                <Card.Subtitle className="mb-2 text-muted">
-                  Ведьмак 1, ГТА Сан Андрес
+                <Card.Subtitle className="mb-2( text-muted">
+                  Ведьмак 1(1 шт), ГТА Сан Андрес(2 шт)
                 </Card.Subtitle>
                 <Card.Text>Пункт выдачи:</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">
                   ул.Северная дом 3
+                </Card.Subtitle>
+                <Card.Text>Статус заказа:</Card.Text>
+                <Card.Subtitle className="mb-2 text-muted">
+                  Готов к выдаче
                 </Card.Subtitle>
                 <Button variant="primary">Отменить</Button>
               </Card.Body>
